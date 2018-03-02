@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Team Information</title>
+</head>
+<body>
+	<h3>Enter Team Information</h3>
+	<form action = "AddTeamServlet" method = "post">
+		Team Name <input type = "text" name = "teamName" width = "100"><br /><br />
+		Team Type: 
+		<select name = "teamType">
+  			<option value= "Social">Social</option>
+  			<option value = "Beginner">Beginner</option>
+  			<option value = "Experienced">Experienced</option>
+  			<option value = "Expert">Expert</option>	
+  		</select><br /><br />
+		Preferred Night: 
+		<select name = "preferredNight">
+  			<option value="Sunday">Sunday</option>
+  			<option value="Monday">Monday</option>
+  			<option value="Tuesday">Tuesday</option>
+  			<option value="Wednesday">Wednesday</option>
+ 			<option value="Thursday">Thursday</option>
+ 			<option value="Friday">Thursday</option>
+ 			<option value="Saturday">Saturday</option>
+ 		</select><br /><br />
+		<input type = "submit" value = "Add New Team">
+	</form>
+	<br/>
+	<a href = "index.html">Back to League Page</a><br />
+</body>
+</html>
