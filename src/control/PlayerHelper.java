@@ -1,19 +1,18 @@
 package control;
 
-import model.Team;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import model.Player;
 
-
-public class TeamHelper {
+public class PlayerHelper {
 
 	private static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("KrisBowlingLeague");
 	
-	public void insertTeam(Team toAdd) {
+	public void insertPlayer(Player toAdd) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(toAdd);
@@ -21,8 +20,8 @@ public class TeamHelper {
 		em.close();
 	}
 	
-	public void deleteTeamById(int id) {
-		Team toDelete = findById(id);
+	public void deletePlayerById(int id) {
+		Player toDelete = findById(id);
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.remove(toDelete);
@@ -30,7 +29,7 @@ public class TeamHelper {
 		em.close();
 	}
 	
-	public void updateTeam(Team toUpdate) {
+	public void updatePlayer(Player toUpdate) {
 		EntityManager em = emfactory.createEntityManager();		
 		em.getTransaction().begin();
 		em.merge(toUpdate);
@@ -38,18 +37,19 @@ public class TeamHelper {
 		em.close();
 	}
 	
-	public List<Team>listAllTeams() {
+	public List<Player>listAllPlayers() {
 		EntityManager em = emfactory.createEntityManager();		
-		TypedQuery<Team> typedQuery = em.createQuery("SELECT t FROM Team t", Team.class);
-		List<Team> results = typedQuery.getResultList();
+		TypedQuery<Player> typedQuery = em.createQuery("SELECT p FROM Team p", Player.class);
+		List<Player> results = typedQuery.getResultList();
 		em.close();
 		return results;
 	}
 	
-	public Team findById(int id) {
+	public Player findById(int id) {
 		EntityManager em = emfactory.createEntityManager();
-		Team team = em.find(Team.class, id);
+		Player team = em.find(Player.class, id);
 		em.close();
 		return team;
 	}
+	
 }
